@@ -87,23 +87,50 @@ var upperCasedCharacters = [
     'Y',
     'Z'
 ];
+
+let password = "Unable to generate password"; 
 let passwordLength = 0;
-let passwordArray = [];
-// a prompt for password length:
-// *the user inputs the length between 10 and 65
-passwordLength = prompt('How many characters would you like your password to contain?');
-// a prompt for special character:
-// *the user clicks 'ok' or 'cancel', which returns 'true' or 'false'
-var includeSpecialCharacters = confirm('Click OK to confirm including special characters');
-// a prompt for numeric character:
-var includeNumericCharacters = confirm('Click OK to confirm including numeric characters');
-// a prompt for lowercase character:
-var includeLowerCaseCharacters = confirm('Click OK to confirm including lowercase characters');
-// a prompt for uppercase character:
-var includeUppercaseCharacters = confirm('Click OK to confirm including uppercase characters');
+let choiceValidation = false;
+let userChoice = [];
+
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+// a prompt for password length:
+// *the user inputs the length between 10 and 65
+passwordLength = parseInt(prompt('How many characters would you like your password to contain?'));
+if (passwordLength < 8 || passwordLength > 65) {
+  alert('Password must be in between 10 and 65 characters long. Please try again');
+  choiceValidation = false;
+  return;
+ } else {
+        // a prompt for special character:
+        // *the user clicks 'ok' or 'cancel', which returns 'true' or 'false'
+        var includeSpecialCharacters = confirm('Click OK to confirm including special characters');
+        // a prompt for numeric character:
+        var includeNumericCharacters = confirm('Click OK to confirm including numeric characters');
+        // a prompt for lowercase character:
+        var includeLowerCaseCharacters = confirm('Click OK to confirm including lowercase characters');
+        // a prompt for uppercase character:
+        var includeUppercaseCharacters = confirm('Click OK to confirm including uppercase characters');
+ }
+
+
+
+}
+
+// Function for getting a random element from an array
+function getRandom(arr) {
+    return arr(Math.floor(Math.random() * arr.length))
+}
+
+// Function to generate password with user input
+function generatePassword() {
+    getPasswordOptions();
+    if(validPass === true){
+        let i = 0;
+        temporaryPassword = []
+    }
     if (includeSpecialCharacters.checked) {
         password += getRandom(upperCasedCharacters)
     }
@@ -116,17 +143,6 @@ function getPasswordOptions() {
     if (includeNumericCharacters.checked) {
         password += getRandom(numericCharacters)
     }
-
-}
-
-// Function for getting a random element from an array
-function getRandom(arr) {
-    return arr.at(Math.floor(Math.random() * arr.length))
-}
-
-// Function to generate password with user input
-function generatePassword() {
-
 }
 
 // Get references to the #generate element
