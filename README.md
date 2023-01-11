@@ -1,4 +1,5 @@
 # Sagaust-Password-Generator
+![05-javascript-challenge-demo](https://user-images.githubusercontent.com/4520852/211688602-397963e4-be6f-4989-b80e-19d1b00ac9e6.png)
 
 ## Description
 
